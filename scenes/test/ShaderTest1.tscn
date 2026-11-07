@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://denhi5c0b4nkd"]
+
+[ext_resource type="Script" uid="uid://cx2s3obmjty4n" path="res://scripts/game/test_input_system_1.gd" id="1_n5wem"]
+[ext_resource type="PackedScene" uid="uid://c4r7egb05m4dp" path="res://models/blender/shader_test_model_1.blend" id="2_abrv6"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_n5wem"]
+keycode = 4194328
+
+[sub_resource type="Environment" id="Environment_abrv6"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="ShaderTest1" type="Node3D" unique_id=348852658]
+
+[node name="InputSystem" type="Node" parent="." unique_id=853225537]
+script = ExtResource("1_n5wem")
+mouse_sensitivity = 0.008
+mouse_look_key_bind = SubResource("InputEventKey_n5wem")
+camera_distance = 10.0
+
+[node name="CameraAnchor" type="Node3D" parent="." unique_id=165695717]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=242867852]
+unique_name_in_owner = true
+transform = Transform3D(-0.8266639, -0.25377235, 0.5022215, 0, 0.89252716, 0.45099366, -0.56269604, 0.37282017, -0.73781997, 0.6941458, 0.831776, -1.0820912)
+projection = 1
+size = 1.94
+
+[node name="Scene3D" type="Node3D" parent="." unique_id=462697219]
+unique_name_in_owner = true
+
+[node name="shader_test_model_1" parent="Scene3D" unique_id=622280809 instance=ExtResource("2_abrv6")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=606287088]
+environment = SubResource("Environment_abrv6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1169887412]
+transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 1.6343396, 0)
+light_color = Color(1, 0.9137255, 0.3019608, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[editable path="Scene3D/shader_test_model_1"]
